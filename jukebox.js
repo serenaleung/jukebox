@@ -1,4 +1,4 @@
-let userSong = prompt("What song do you want to play?");
+// let userSong = prompt("What song do you want to play?");
 
 let parseNote = function (notes){
   let pitchBeats = {};
@@ -27,13 +27,16 @@ return arrNotes;
 console.log(arrNotes);
 }
 
-console.log(parseSong(userSong));
-
+// console.log(parseSong(userSong));
 // console.log(parseSong("C#*3 D A*4 Bb"));
 
 // playSong(parseSong(userSong), 120);
 
 const onComplete = function () {
+   let userSong = prompt("What song do you want to play?");
+   let songNotes = parseSong(userSong);
    console.log('Song finished playing');
+   playSong(songNotes, 120, onComplete);
 }
-playSong(parseSong(userSong), 120, onComplete);
+
+onComplete();
